@@ -1,0 +1,5 @@
+namespace QiLiaoReply;
+
+public partial class App : System.Windows.Application
+{
+}

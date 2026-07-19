@@ -1,0 +1,30 @@
+# ===== 构建产物（不入库） =====
+bin/
+obj/
+publish/
+publish_v2/
+tmp_trim/
+tmp_fd/
+tmp_bf/
+harness_bf2/
+*.log
+
+# ===== 逆向 / 测试遗留（非本工具源码，体积大且不相关） =====
+reverse/
+_verify/
+verify/
+_inspect.py
+_inspect_out.txt
+_sim.py
+_sim_out.txt
+exe_strings.txt
+$null
+tools/
+
+# ===== IDE / 用户本地文件 =====
+*.user
+*.suo
+.vs/
+
+# ===== 发布输出目录（如需在仓库中分发可改为保留） =====
+# 注意：桌面上的「欠料表处理工具_v2.15」为打包产物，一般不需入库

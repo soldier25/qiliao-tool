@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <AssemblyName>欠料表处理工具</AssemblyName>
+    <AssemblyTitle>欠料表处理工具</AssemblyTitle>
+    <AssemblyProduct>欠料表处理工具</AssemblyProduct>
+    <RootNamespace>QiLiaoReply</RootNamespace>
+    <ApplicationIcon>Assets/app.ico</ApplicationIcon>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="verify/**/*.cs" />
+    <Compile Remove="_verify/**/*.cs" />
+    <Compile Remove="_harness/**/*.cs" />
+    <Compile Remove="publish/**/*.cs" />
+    <Compile Remove="publish_v2/**/*.cs" />
+    <Compile Remove="native/**/*.cs" />
+  </ItemGroup>
+
+  <!-- C 核心 DLL：作为原生库嵌入单文件，运行时由宿主自动提取到本机搜索路径，无需散落文件 -->
+  <ItemGroup>
+    <NativeLibrary Include="native\qiliao_core.dll" Condition="Exists('native\qiliao_core.dll')" />
+  </ItemGroup>
+
+  <!-- 应用图标（嵌入资源，供窗口标题栏显示） -->
+  <ItemGroup>
+    <Resource Include="Assets\app.ico" />
+  </ItemGroup>
+
+</Project>
